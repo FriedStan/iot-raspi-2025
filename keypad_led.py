@@ -22,7 +22,7 @@ RED=2
 GREEN=3
 BLUE=4
 
-ROWS = [23, 24, 25, 8]
+ROWS = [23, 24, 25, 7]
 COLS = [12, 16, 20, 21]
 
 GPIO.setmode(GPIO.BCM)
