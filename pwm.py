@@ -5,7 +5,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 ledpin = 12
 
-system GPIO.setup(ledpin, GPIO.OUT)
+GPIO.setup(ledpin, GPIO.OUT)
 pi_pwm = GPIO.PWM(ledpin, 1000)
 pi_pwm.start(0)
 
