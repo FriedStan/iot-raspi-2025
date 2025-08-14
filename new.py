@@ -16,7 +16,7 @@ try:
         value = read_adc_ch0()
         voltage = (value * 3.3) / 4096
         print(f"CH0: {value:4d} | {voltage:.2f} V")
-        time.sleep(0.5)
+        time.sleep(0.05)
 
 except KeyboardInterrupt:
     spi.close()
