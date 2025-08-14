@@ -23,4 +23,4 @@ while True:
         voltage = (reading * 3.3) / 4096
         print(f"Reading={reading}\t Voltage={voltage}")
         pi_pwm.ChangeDutyCycle(reading / 4096 * 100)
-        time.sleep(0.2)
+        time.sleep(1)
