@@ -21,6 +21,7 @@ while True:
     for i in range(8):
         reading = ReadChannel(0)
         voltage = (reading * 3.3) / 4096
-        print(f"Reading={reading}\t Voltage={voltage}")
-        pi_pwm.ChangeDutyCycle(reading / 4096 * 100)
+        percent = reading / 4096 * 100
+        print(f"Reading={reading}\t Voltage={voltage}\t PWM={percent}%")
+        pi_pwm.ChangeDutyCycle(percent)
         time.sleep(0.2)
