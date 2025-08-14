@@ -56,11 +56,10 @@ def get_key():
 try:
     while True:
         pressed_key = get_key()
-
         if pressed_key is not None and pressed_key in range(1, 8):
-            print(f"Pressed: {pressed_key}")
             for count, color in enumerate(SEVEN_COLOR):
                 if (pressed_key == count):
+                    print(f"Pressed: {count}")
                     GPIO.output(RED,color[0])
                     GPIO.output(GREEN,color[1])
                     GPIO.output(BLUE,color[2])
