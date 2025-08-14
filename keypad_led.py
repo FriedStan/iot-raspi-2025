@@ -31,7 +31,7 @@ def get_key():
                 key = KEYPAD[row_num][col_num]
 
                 while GPIO.input(row_pin) == GPIO.LOW:
-                    time.sleepk(0.05)
+                    time.sleep(0.05)
         
         GPIO.output(col_pin, GPIO.HIGH)
     return key
