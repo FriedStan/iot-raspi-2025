@@ -8,10 +8,27 @@ KEYPAD = [
     ['*', 0, '#', 'D']
 ]
 
+SEVEN_COLOR = [
+    [1, 0, 0],
+    [1, 1, 0],
+    [0, 1, 0],
+    [0, 1, 1],
+    [0, 0, 1],
+    [1, 0, 1],
+    [1, 1, 1]
+]
+
+RED=2
+GREEN=3
+BLUE=4
+
 ROWS = [23, 24, 25, 8]
 COLS = [12, 16, 20, 21]
 
 GPIO.setmode(GPIO.BCM)
+GPIO.setup(RED,GPIO.OUT)
+GPIO.setup(BLUE,GPIO.OUT)
+GPIO.setup(GREEN,GPIO.OUT)
 
 for row_pin in ROWS:
     GPIO.setup(row_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -40,8 +57,12 @@ try:
     while True:
         pressed_key = get_key()
 
-        if pressed_key is not None:
-            print(f"Presses: {pressed_key}")
+        if pressed_key is not None and pressed_key in range(1, 7):
+            for count, color in enumerate(SEVEN_COLOR):
+                if (pressed_key == count):
+                    GPIO.output(GREEN,color[0])
+                    GPIO.output(BLUE,color[1])
+                    GPIO.output(RED,color[2])
         time.sleep(0.1)
 
 except KeyboardInterrupt:
