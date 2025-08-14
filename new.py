@@ -27,7 +27,7 @@ try:
         percent = reading / 4096 * 100
         print(f"Reading={reading}\t Voltage={voltage:.2f}\t PWM={percent:.2f}%")
         pi_pwm.ChangeDutyCycle(percent)
-        time.sleep(0.05)
+        time.sleep(0.1)
 
 except KeyboardInterrupt:
     spi.close()
