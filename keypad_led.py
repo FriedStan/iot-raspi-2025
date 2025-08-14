@@ -57,13 +57,17 @@ try:
     while True:
         pressed_key = get_key()
 
-        if pressed_key is not None and pressed_key in range(1, 7):
+        if pressed_key is not None and pressed_key in range(1, 8):
             print(f"Pressed: {pressed_key}")
             for count, color in enumerate(SEVEN_COLOR):
-                if (pressed_key == count):
+                if (pressed_key == (count+1)):
                     GPIO.output(GREEN,color[0])
                     GPIO.output(BLUE,color[1])
                     GPIO.output(RED,color[2])
+        else:
+            GPIO.output(GREEN,True)
+            GPIO.output(BLUE,True)
+            GPIO.output(RED,True)
         time.sleep(0.1)
 
 except KeyboardInterrupt:
