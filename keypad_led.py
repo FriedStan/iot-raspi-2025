@@ -61,9 +61,9 @@ try:
             print(f"Pressed: {pressed_key}")
             for count, color in enumerate(SEVEN_COLOR):
                 if (pressed_key == count):
-                    GPIO.output(GREEN,color[0])
-                    GPIO.output(BLUE,color[1])
-                    GPIO.output(RED,color[2])
+                    GPIO.output(RED,color[0])
+                    GPIO.output(GREEN,color[1])
+                    GPIO.output(BLUE,color[2])
         time.sleep(0.1)
 
 except KeyboardInterrupt:
