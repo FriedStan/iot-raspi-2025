@@ -13,4 +13,4 @@ while True:
         reading = ReadChannel(0)
         voltage = (reading * 3.3) / 4096
         print(f"Reading={reading}\t Voltage={voltage}")
-        time.sleep(1)
+        time.sleep(0.2)
