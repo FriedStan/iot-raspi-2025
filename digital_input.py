@@ -1,8 +1,9 @@
 import RPi.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BCM)
-LIGHT=4
-BUTTON=17
+LIGHT=12
+BUTTON=4
 
 GPIO.setup(LIGHT,GPIO.OUT)
 GPIO.setup(BUTTON,GPIO.IN)
