@@ -15,9 +15,10 @@ def ReadChannel(channel):
     data = ((adc[1] & 15) << 8) + adc[2]
     return data
 
+track = "/"
+
 try:
     while True:
-        track = "/"
         reading_mpc = ReadChannel(0)
         reading_thermistor = ReadChannel(7)
         voltage_mpc = (reading_mpc * 3.3) / 4096
