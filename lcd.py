@@ -13,5 +13,5 @@ lcd = CharLCD(
     backlight_enabled=True
 )
 while True:
-   lcd.write_string("本")
+   lcd.write_string("1")
    time.sleep(1)
