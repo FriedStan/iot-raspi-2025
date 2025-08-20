@@ -28,7 +28,6 @@ try:
             track="\\"
         else:
             track="/"
-        reading_thermistor = ReadChannel(7)
         time.sleep(0.3)
 
 except KeyboardInterrupt:
