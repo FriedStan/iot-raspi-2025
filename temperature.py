@@ -32,7 +32,7 @@ try:
         print(f"Reading={reading_mpc}\t Voltage={voltage_mpc:.2f}\t Temp_mpc={temp_mpc:.2f}\t Temp_therm={temp_thermistor:.2f}")
         
         reading_thermistor = ReadChannel(7)
-        time.sleep(0.5)
+        time.sleep(0.3)
 
 except KeyboardInterrupt:
     spi.close()
