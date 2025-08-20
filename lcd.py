@@ -1,5 +1,6 @@
 from RPLCD.i2c import CharLCD
 import time
+import random
 # สร้ำงออบเจ็กต์ LCD
 lcd = CharLCD(
     i2c_expander='PCF8574',
@@ -20,3 +21,13 @@ lcd.clear()  # ล้ำงหน้ำจอ  สดงข้อควำมใ
 lcd.write_string("Line 1 Example")
 lcd.crlf()
 lcd.write_string("Temp: 25.5 C")
+
+while True:
+   num = random.randrange(1,10)
+   if(num == 5):
+      lcd.clear()
+      lcd.write_string("(#^_^#)")
+   else:
+      lcd.clear()
+      lcd.write_string("(´ω｀*)")
+   time.sleep(1)
