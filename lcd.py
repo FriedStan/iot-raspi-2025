@@ -8,17 +8,17 @@ lcd = CharLCD(
     port=1,
     cols=16,
     rows=2,
-    charmap='A00',
+    charmap='A02',
     auto_linebreaks=True,
     backlight_enabled=True
 )
 prev = 0
 while True:
    num = random.randrange(1,10)
-   if(num == 5 and prev != 5):
+   if(num == 5):
       lcd.clear()
       lcd.write_string("(#^_^#)")
-   elif(num == 1 and prev != 1):
+   elif(num == 1):
       lcd.clear()
       lcd.write_string("(>‿<)")
    elif(prev!=num):
