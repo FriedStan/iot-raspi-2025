@@ -1,13 +1,9 @@
 import time
-import RPi.GPIO as GPIO
 import spidev
 import math
 spi = spidev.SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 33333
-
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
+spi.max_speed_hz = 44444
 
 
 def ReadChannel(channel):
