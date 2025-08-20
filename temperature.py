@@ -20,7 +20,7 @@ track = "/"
 try:
     while True:
         reading_mpc = ReadChannel(0)
-        reading_thermistor = ReadChannel(7)
+        reading_thermistor = ReadChannel(6)
         voltage_mpc = (reading_mpc * 3.3) / 4096
         temp_mpc = 100*(((reading_mpc*3.3)/4096)-1)+50
 
