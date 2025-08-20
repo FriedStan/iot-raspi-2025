@@ -4,7 +4,7 @@ import spidev
 import math
 spi = spidev.SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 500000
+spi.max_speed_hz = 1000000
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
