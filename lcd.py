@@ -12,7 +12,6 @@ lcd = CharLCD(
     auto_linebreaks=True,
     backlight_enabled=True
 )
-prev = 0
 while True:
-   lcd.write("本")
+   lcd.write("あ")
    time.sleep(1)
