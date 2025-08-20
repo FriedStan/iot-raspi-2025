@@ -25,7 +25,7 @@ try:
         reading = read_adc_ch0()
         voltage = (reading * 3.3) / 4096
         temp = 100*(((reading*3.3)/4095)-1)+50
-        print(f"Reading={reading}\t Voltage={voltage:.2f}\t")
+        print(f"Reading={reading}\t Voltage={voltage:.2f}\t Temp={temp:.2f}")
         time.sleep(0.1)
 
 except KeyboardInterrupt:
