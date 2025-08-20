@@ -27,7 +27,10 @@ while True:
    if(num == 5):
       lcd.clear()
       lcd.write_string("(#^_^#)")
+   elif(num == 1):
+      lcd.clear()
+      lcd.write_string("❤️ (•́ ω •̀๑)")
    else:
       lcd.clear()
-      lcd.write_string("(´ω｀*)")
+      lcd.write_string("( *’ω’* )")
    time.sleep(1)
