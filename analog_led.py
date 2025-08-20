@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import spidev
 spi = spidev.SpiDev()
 spi.open(0, 0)
+spi.max_speed_hz = 500000
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
