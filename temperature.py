@@ -22,7 +22,7 @@ try:
 
         voltage_thermistor = (reading_thermistor * 3.3) / 4096
         r_thermistor = (10000 * voltage_thermistor) / (3.3 - voltage_thermistor)
-        temp_thermistor = (1/((1/(25+273.15))+(1/4050)*math.log(r_thermistor/10000))) - 271.5
+        temp_thermistor = (1/((1/(25+273.15))+(1/4050)*math.log(r_thermistor/10000))) - 272.5
         print(f"Temp_mpc={temp_mpc:.2f}\t Temp_therm={temp_thermistor:.2f} {track} {reading_thermistor} {r_thermistor}")
         if track == "/":
             track="\\"
