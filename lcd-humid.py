@@ -29,4 +29,4 @@ while True:
     lcd.write_string("Temp: %.2f C" % cTemp)
     lcd.crlf()
     lcd.write_string("Humid: %.2f %%RH" % humidity)
-    time.sleep(1)
+    time.sleep(0.1)
