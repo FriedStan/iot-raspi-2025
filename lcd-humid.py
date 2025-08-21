@@ -29,7 +29,7 @@ while True:
     humidity = 100 * (data[3] * 256 + data[4]) / 65535.0
     if num == 5:
         lcd.clear()
-        lcd.write_string("      BOO      ")
+        lcd.write_string("   SEND HELP!   ")
     else:
         lcd.clear()
         lcd.write_string("Temp: %.2f C" % cTemp)
