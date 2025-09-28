@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 
 MQTT_BROKER = 'mqtt-dashboard.com'  
-MQTT_PORT = 1883  t
+MQTT_PORT = 1883
 MQTT_TOPIC = '34asdw4g/66070030'
 
 # Define the callback functions
