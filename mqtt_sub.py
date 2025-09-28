@@ -44,7 +44,7 @@ try:
     # Keep the script running
     while True:
         val=GPIO.input(BUTTON)
-        if val == 1:
+        if val == 0:
             client.publish(MQTT_TOPIC, "ON")
             time.sleep(1)
 except KeyboardInterrupt:
