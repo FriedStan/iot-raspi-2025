@@ -45,7 +45,7 @@ try:
         val=GPIO.input(BUTTON)
         if val==1:
             client.publish(MQTT_TOPIC, "ON")
-        else:
+        elif val == 0:
             client.publish(MQTT_TOPIC, "OFF")
 except KeyboardInterrupt:
     # Stop the loop and disconnect gracefully on keyboard interrupt
