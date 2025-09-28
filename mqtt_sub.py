@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BCM)
 LIGHT=4
@@ -43,10 +44,9 @@ try:
     # Keep the script running
     while True:
         val=GPIO.input(BUTTON)
-        if val==1:
+        if val == 1:
             client.publish(MQTT_TOPIC, "ON")
-        elif val == 0:
-            client.publish(MQTT_TOPIC, "OFF")
+            time.sleep(1)
 except KeyboardInterrupt:
     # Stop the loop and disconnect gracefully on keyboard interrupt
     client.loop_stop()
