@@ -3,7 +3,9 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 LIGHT=4
+BUTTON=17
 GPIO.setup(LIGHT,GPIO.OUT)
+GPIO.setup(BUTTON,GPIO.IN)
 
 
 MQTT_BROKER = 'mqtt-dashboard.com'  
@@ -40,7 +42,11 @@ client.loop_start()
 try:
     # Keep the script running
     while True:
-        pass
+        val=GPIO.input(BUTTON)
+        if val==1:
+            client.publish(MQTT_TOPIC, "ON")
+        else:
+            client.publish(MQTT_TOPIC, "OFF")
 except KeyboardInterrupt:
     # Stop the loop and disconnect gracefully on keyboard interrupt
     client.loop_stop()
