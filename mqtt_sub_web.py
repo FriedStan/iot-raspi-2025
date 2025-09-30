@@ -20,9 +20,9 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, message):
     text = message.payload.decode()
     print(f"Received message '{text}' on topic '{message.topic}'")
-    if text == "ON":
+    if text == "on":
         GPIO.output(LIGHT,True)
-    elif text == "OFF":
+    elif text == "off":
         GPIO.output(LIGHT,False)
 
 # Create a new MQTT client instance
