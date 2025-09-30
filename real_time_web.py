@@ -46,9 +46,9 @@ try:
         reading = ReadChannel(0)
         voltage = (reading * 3.3) / 4096
         percent = reading / 4096 * 100
-        time.sleep(0.3)
+        time.sleep(0.2)
         client.publish(MQTT_TOPIC, percent)
-        time.sleep(1)
+        time.sleep(0.5)
 except KeyboardInterrupt:
     # Stop the loop and disconnect gracefully on keyboard interrupt
     client.loop_stop()
