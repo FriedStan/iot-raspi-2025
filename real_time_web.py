@@ -1,17 +1,15 @@
 import paho.mqtt.client as mqtt
-import RPi.GPIO as GPIO
+import spidev
 import time
 
-GPIO.setmode(GPIO.BCM)
-LIGHT=4
-BUTTON=17
-GPIO.setup(LIGHT,GPIO.OUT)
-GPIO.setup(BUTTON,GPIO.IN)
+spi = spidev.SpiDev()
+spi.open(0, 0)
+spi.max_speed_hz = 500000
 
 
 MQTT_BROKER = 'mqtt-dashboard.com'  
 MQTT_PORT = 1883
-MQTT_TOPIC = '34asdw4g/66070030'
+MQTT_TOPIC = '66070030/as3sfe'
 
 # Define the callback functions
 def on_connect(client, userdata, flags, rc):
@@ -22,10 +20,12 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, message):
     text = message.payload.decode()
     print(f"Received message '{text}' on topic '{message.topic}'")
-    if text == "ON":
-        GPIO.output(LIGHT,True)
-    elif text == "OFF":
-        GPIO.output(LIGHT,False)
+
+
+def ReadChannel(channel):
+    adc = spi.xfer2([6 | (channel & 4) >> 2, (channel & 3) << 6, 0])
+    data = ((adc[1] & 15) << 8) + adc[2]
+    return data
 
 # Create a new MQTT client instance
 client = mqtt.Client()
@@ -43,10 +43,12 @@ client.loop_start()
 try:
     # Keep the script running
     while True:
-        val=GPIO.input(BUTTON)
-        if val == 0:
-            client.publish(MQTT_TOPIC, "ON")
-            time.sleep(1)
+        reading = ReadChannel(0)
+        voltage = (reading * 3.3) / 4096
+        percent = reading / 4096 * 100
+        time.sleep(0.3)
+        client.publish(MQTT_TOPIC, percent)
+        time.sleep(1)
 except KeyboardInterrupt:
     # Stop the loop and disconnect gracefully on keyboard interrupt
     client.loop_stop()
