@@ -4,14 +4,12 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 LIGHT=4
-BUTTON=17
 GPIO.setup(LIGHT,GPIO.OUT)
-GPIO.setup(BUTTON,GPIO.IN)
 
 
 MQTT_BROKER = 'mqtt-dashboard.com'  
 MQTT_PORT = 1883
-MQTT_TOPIC = '34asdw4g/66070030'
+MQTT_TOPIC = '66070030/as3sfe'
 
 # Define the callback functions
 def on_connect(client, userdata, flags, rc):
